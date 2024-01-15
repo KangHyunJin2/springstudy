@@ -6,8 +6,7 @@
 	<!-- 전체조회 ORDER BY 들어갈수 있도록 작성 -->
 	<select id="selectEmpList" resultType="EmpVO">
 		SELECT employee_id
-		,
-		last_name
+		, last_name
 		, email
 		, hire_date
 		, job_id
@@ -83,32 +82,33 @@
 	<update id="updateEmpInfoDynamic" parameterType="EmpVO">
 		UPDATE employees
 		SET
-			<choose> <!--  when 이라는 다중조건이 있다-->
-				<when test="lastName != null and !lastName.equals('')"> <!-- 하용하지 않겠다 -->
-					last_name = #{lastName}
-				</when>
-				<otherwise>
-					last_name = 'Any'
-				</otherwise>
-			</choose>
-			<if test="email != null"> <!-- 공백을 넣겠다 -->
-				, email = #{email}
-			</if>
-			<if test="salary >= 0">
-				, salary = #{salary}
-			</if>
-			<where>
+		<choose> <!-- when 이라는 다중조건이 있다 -->
+			<when test="lastName != null and !lastName.equals('')"> <!-- 하용하지 않겠다 -->
+				last_name = #{lastName}
+			</when>
+			<otherwise>
+				last_name = 'Any'
+			</otherwise>
+		</choose>
+		<if test="email != null"> <!-- 공백을 넣겠다 -->
+			, email = #{email}
+		</if>
+		<if test="salary >= 0">
+			, salary = #{salary}
+		</if>
+		<where>
 			<if test="employeeId > 0">
-				 employee_id = #{employeeId}
+				employee_id = #{employeeId}
 			</if>
 		</where>
 	</update>
-	
-	<!-- 매개변수 다개 -->
+
+	<!-- 매개변수 2개인 경우 -->
 	<update id="updateEmpSal">
 		UPDATE employees
-			SET salary = salary * #{info.salary} <!-- info.ㅇ이름을 정해주는것  -->
-		WHERE employee_id = #{eid}
+		SET salary = salary * #{info.salary} <!-- info.이름을 정해주는것 -->
+		WHERE employee_id = #{eid} <!-- 파라미터타입이 객체한건일 때만 #{필드명}, 삭제의 경우 public int 
+			deleteEmpInfo(int empId); 매개변수가 하나다 -->
 	</update>
 
 </mapper>
