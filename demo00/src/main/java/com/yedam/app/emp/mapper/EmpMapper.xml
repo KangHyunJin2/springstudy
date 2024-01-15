@@ -2,7 +2,16 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
- <mapper>
- 	
- </mapper>
+<!-- 인터페이스 경로 및 이름(풀네임) -->
+<mapper namespace="com.yedam.app.emp.mapper.EmpMapper">
+   <!-- 전체조회 -->
+   <select id="selectEmpList" resultType="com.yedam.app.emp.service.EmpVO">
+      SELECT employee_id
+            , last_name
+            , email
+            , hire_date
+            , job_id
+      FROM employees
+      ORDER BY employee_id
+   </select>
+</mapper>
