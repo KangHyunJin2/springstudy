@@ -4,14 +4,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SamsungTV implements TV {
+public class SamsungTV implements TV{
+	
 	@Autowired
-	private Speaker speaker = null;
+	Speaker speaker;
+	
+	//생성자 방식
+	
+	SamsungTV(Speaker speaker){
+		this.speaker = speaker;
+	}
+	
+	
+	//setter 방식
+	SamsungTV(){}
+	
+	public void setSpeaker(Speaker speaker) {
+		this.speaker = speaker;
+	}
 	
 	@Override
 	public void on() {
-		// TODO Auto-generated method stub
-		System.out.println("�Ｚ TV�� Ŵ");
+		System.out.println("삼성 TV를 켰습니다.");
 		speaker.on();
 	}
 }

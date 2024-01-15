@@ -5,6 +5,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class Speaker {
 	public void on() {
-		System.out.println("½ºÇÇÄ¿¸¦ ½ÇÇàÇß½À´Ï´Ù.");
+		System.out.println("ìŠ¤í”¼ì»¤ë¥¼ ì‹¤í–‰ í–ˆìŠµë‹ˆë‹¤.");
 	}
 }

@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.yedam</groupId>
 	<artifactId>app</artifactId>
-	<name>demo00</name>
+	<name>sp01</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -92,6 +92,7 @@
 		</dependency>
 
 		<!-- Servlet -->
+		<!-- 기존의 servlet-api를 교체 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -110,14 +111,14 @@
 			<version>1.2</version>
 		</dependency>
 
-		<!-- junit친규 -->
+		<!-- spring-test -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
 
-		<!-- 롬뽁 -->
+		<!-- lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -125,13 +126,14 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- json변환기 -->
+		<!-- jackson -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>2.13.2.2</version>
 		</dependency>
 
+		<!-- Database setting -->
 		<!-- Database connection pool -->
 		<dependency>
 			<groupId>com.zaxxer</groupId>
@@ -153,6 +155,7 @@
 			<version>19.3.0.0</version>
 		</dependency>
 
+		<!-- Mybatis Setting -->
 		<!-- mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -181,6 +184,7 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
