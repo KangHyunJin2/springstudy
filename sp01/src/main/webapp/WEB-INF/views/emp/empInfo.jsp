@@ -45,7 +45,7 @@
 		<div>
 			<button type="button" onclick="location.href='empList'">목록으로</button>
 			<button type="button" id="updateBtn">수정</button>
-			<button type="button">삭제</button>
+			<button type="button">삭제</button> <!-- 그냥 이거 커밋용 지워주세요 -->
 		</div>
 	</form>
 	<script>
