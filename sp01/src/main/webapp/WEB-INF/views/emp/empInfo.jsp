@@ -45,7 +45,7 @@
 		<div>
 			<button type="button" onclick="location.href='empList'">목록으로</button>
 			<button type="button" id="updateBtn">수정</button>
-			<button type="button">삭제</button> <!-- 그냥 이거 커밋용 지워주세요 -->
+			<button type="button" onclick="location.href='empDelete?eid=${empInfo.employeeId}'">삭제</button> <!-- 밑에서 썻던 변수명을 쓴다 -->
 		</div>
 	</form>
 	<script>
@@ -57,7 +57,7 @@
 			let empInfo = getEmpInfo();
 			console.log(empInfo);
 			// 해당 정보를 기반으로 Ajax
-			// -QueryString
+			// -QueryString : key=value&key=value...
 			fetch('empUpdate',{
 				method : 'post',
 				body : new URLSearchParams(empInfo)
@@ -68,10 +68,26 @@
 				console.log('QueryString', result)
 			})
 			.catch(err => console.log(err))
+			
+			// JSON : { "key" : "value", "key" : "value", .... }
+			fetch('empUpdateAjax',{
+				method : 'post',
+				headers : {
+					'Content-Type' : 'application/json'
+				},
+				body : JSON.stringify(empInfo)
+				
+			})
+			.then(response=>response.json())
+			.then(result => {
+				console.log('JSON', result)
+			})
+			.catch(err => console.log(err))
+			
 		}
 		
 		function getEmpInfo(){
-			let inputList = document.querySelectorAll('form input');
+			let inputList = document.querySelectorAll('form input'); //
 			
 			let objData = {};
 			inputList.forEach(tag =>{
