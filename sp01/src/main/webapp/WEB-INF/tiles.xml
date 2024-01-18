@@ -10,7 +10,7 @@
 	</definition>
 	
 	<definition name="*/*" extends="mainTemplate"> <!-- extends: mainTemplate 상속받아서 덮어쓰거나 추가-->
-		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" /> <!-- 아스타의 개수 많큼 위치해야한다 -->
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" /> <!-- 아스타의 개수 많큼 위치해야한다 아스타 위치 기반으로 해서 뭐가 파일인지 폴더인지 정해진다 -->
 	</definition>
 	
 	<definition name="home" extends="mainTemplate"> 

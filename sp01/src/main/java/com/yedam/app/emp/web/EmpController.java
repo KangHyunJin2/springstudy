@@ -72,7 +72,7 @@ public class EmpController {
 	}
 	
 	
-	//2) JSON 		=> @RequestBody
+	//2) JSON 		=> @RequestBody Ajax용 컨트롤러
 	@PostMapping("empUpdateAjax")
 	@ResponseBody
 	public Map<String, Object> empUpdateAjaxProcess(@RequestBody EmpVO empVO){

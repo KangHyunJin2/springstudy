@@ -30,6 +30,8 @@
 		<property name="configLocation"
 			value="classpath:mybatis-config.xml" />
 		<!-- mapperLocation 얘가 있으면 한번더 확인이 필요하다, 얘가 있느냐 없느냐에 따라서 많이 달라진다 -->
+		<!-- <property name="mapperLocations"
+		 	value="*classpath:mapper/*.xml" /> --> 
 	</bean>
 
 	<!-- mapper scan -->
