@@ -31,7 +31,7 @@ public class BoardController {
 	
 	//단건조회 : URI - boardInfo / PARAMETER - BOARDVO
 	//		   / RETURN - board/boardInfo
-	@GetMapping("boardInfo")
+	@GetMapping("boardInfo") // boardMapper.xml 에서 bno 값을 넘김
 	public String getBoardInfo(BoardVO boardVO, Model  model) { // 커멘드 객체 기반으로 작업
 		BoardVO findVO = boardService.getBoardInfo(boardVO);
 		model.addAttribute("boardInfo", findVO);
@@ -55,24 +55,27 @@ public class BoardController {
 	
 	
 	//수정 - 페이지  : URI - boardUpdate / PARAMETER - BoardVO
-	// 			/ RETURN - board/boardupdate
-	@PostMapping("boardUpdate")
-	@ResponseBody
-	public Map<String, Object> boardUpdateProcess(BoardVO boardVO){
-		return boardService.updateBoardInfo(boardVO);
+	// 			/ RETURN - board/boardUpdate
+	@GetMapping("boardUpdate")
+	public String boardUpdateForm(BoardVO boardVO, Model model){
+		BoardVO findVO = boardService.getBoardInfo(boardVO);
+		model.addAttribute("boardInfo", findVO);
+		return "board/boardUpdate";
 	}
 	
 	//수정 - 처리    : URI - boardUpdate / PARAMETER - BoardVO
 	//			/ RETURN - 수정결과 데이터(Map)
-	@PostMapping("boardUpdateAjax")
-	@ResponseBody
-	public Map<String, Object> boardUpdateAjaxProcess(@RequestBody BoardVO boardVO){
-		return boardService.updateBoardInfo(boardVO);
+	@PostMapping("boardUpdate") // 아작스 용
+	@ResponseBody 									
+	public Map<String, Object> boardUpdateAjaxProcess(@RequestBody BoardVO boardVO, Model model){ // @Requestbody를 쓰느냐 안쓰느냐 상관은 없다 하지만 아작스 기반으로 하게되면 content 타입이 달라진다
+		return boardService.updateBoardInfo(boardVO);								 // @Requestbody를 쓰면 boardUpdate에서 
+																					//contentType : 'application/json',
+																					//data : JSON.stringify(boardDta)
 	}
 	
 	//삭제
 	@GetMapping("boardDelete")
-	public String boardDelete(@RequestParam Integer bno) {
+	public String boardDelete(@RequestParam Integer bno) { //RequestParam 은 붙이는 순간 필수값이다 데이터가 넘어 오지 않으면 통신 자체를 거부함 
 		boardService.deleteBoardInfo(bno);
 		return "redirect:boardList";
 	}

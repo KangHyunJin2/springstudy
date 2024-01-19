@@ -57,13 +57,12 @@
  	<update id="updateBoard" parameterType="BoardVO">
  		UPDATE tbl_board_01
  		SET
- 		title = #{title},
- 		contents = #{contents},
- 		writer = #{writer},
- 		updatedate = sysdate,
- 		image = #{image}
- 		WHERE
- 		bno = #{bno}
+ 			title = #{title},
+ 			contents = #{contents},
+ 			writer = #{writer},
+ 			updatedate = sysdate,
+ 			image = #{image}
+ 		WHERE bno = #{bno}
  	</update>
   	
   	<!-- 삭제 -->

@@ -10,16 +10,16 @@
 </head>
 <body>
 	<button></button>
-	<table>
+	<table class="table">
 		<thead>
 			<tr>
-				<th>No.</th>
-				<th>employee_id</th>
-				<th>last_name</th>
-				<th>email</th>
-				<th>hire_date</th>
-				<th>job_id</th>
-				<th>salary</th>
+				<th class="line">No.</th>
+				<th class="line">employee_id</th>
+				<th class="line">last_name</th>
+				<th class="line">email</th>
+				<th class="line">hire_date</th>
+				<th class="line">job_id</th>
+				<th class="line">salary</th>
 			</tr>
 		</thead>
 		<tbody>

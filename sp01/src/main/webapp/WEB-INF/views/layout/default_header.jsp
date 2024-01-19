@@ -11,7 +11,7 @@
         <li class="nav-item"><a href="${pageContext.request.contextPath }/" class="nav-link active" aria-current="page">Home</a></li>
         <li class="nav-item"><a href="${pageContext.request.contextPath }/empList" class="nav-link">전체 사원 조회</a></li>
         <li class="nav-item"><a href="${pageContext.request.contextPath }/empInsert" class="nav-link">사원 정보 등록</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="${pageContext.request.contextPath }/boardList" class="nav-link">게시판 조회</a></li>
+        <li class="nav-item"><a href="${pageContext.request.contextPath }/boardInsert" class="nav-link">게시글 등록</a></li>
       </ul>
     </header>

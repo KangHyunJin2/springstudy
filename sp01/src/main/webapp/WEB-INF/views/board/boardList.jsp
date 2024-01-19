@@ -20,7 +20,7 @@
 		<tbody>
 			<tr>
 				<c:forEach items="${boardList}" var="board" varStatus="sts">
-				<tr onclick="location.href='boardInfo?bno=${board.bno}'">
+				<tr onclick="location.href='boardInfo?bno=${board.bno}'"> <!-- 페이지 강제 전환 -->
 					<td>${sts.count }</td>
 					<td>${board.bno}</td>
 					<td>${board.title}</td>
