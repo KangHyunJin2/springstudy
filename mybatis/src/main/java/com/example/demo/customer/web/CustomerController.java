@@ -27,7 +27,7 @@ public class CustomerController {
 		return repo.save(new Customer(fname,lname));
 	
 	}
-	
+	//localhost/findCustomer/dong
 	@GetMapping("/findCustomer/{firstName}")
 	public List<Customer> findCustomer(@PathVariable String firstName){
 		return repo.findByfirstName(firstName);
