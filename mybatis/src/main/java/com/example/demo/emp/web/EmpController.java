@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.emp.mapper.EmpMapper;
 
+import lombok.extern.log4j.Log4j2;
+
 @Controller
+@Log4j2
 public class EmpController {
 	
 	@Autowired
@@ -16,6 +19,7 @@ public class EmpController {
 	@GetMapping("/admin/empList")
 	public String list(Model model) {
 		model.addAttribute("list", empMapper.getEmpList(null));
+		log.info("emp List");
 		return "empList";
 	}
 }
